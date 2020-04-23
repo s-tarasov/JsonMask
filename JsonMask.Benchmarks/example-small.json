@@ -1,0 +1,24 @@
+{
+  "t": [
+    {
+      "_id": "5e9cdb5ca02a7297766e6a2c",
+      "index": 0,
+      "guid": "c4c31bd4-5fe6-4026-b848-65f59c16194d",
+      "isActive": true,
+      "balance": "$2,430.52",
+      "picture": "http://placehold.it/32x32",
+      "age": 39,
+      "eyeColor": "green",
+      "name": "Adams Walters",
+      "gender": "male",
+      "friends": [
+        {
+          "id": 0,
+          "name": "Welch Torres"
+        }
+      ],
+      "greeting": "Hello, Adams Walters! You have 9 unread messages.",
+      "favoriteFruit": "apple"
+    }
+  ]
+}
