@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using System;
 
 namespace JsonMask
 {
@@ -7,21 +7,19 @@ namespace JsonMask
         public static JsonMasker.MaskValue Full { get; } = FullMasking;
 
         public static JsonMasker.MaskValue LastSymbolsByPercent(byte percent) =>
-            (sb, stP, enP) => LastSymbolsByPercentInternal(sb, stP, enP, percent);
+            (value) => LastSymbolsByPercentInternal(value, percent);
 
-        private static void FullMasking(StringBuilder stringBuilder, int startPosition, int endPosition)
+        private static void FullMasking(Span<char> value)
         {
-            for (var pos = startPosition; pos <= endPosition; pos++)
-                stringBuilder[pos] = '*';
+            for (var pos = 0; pos < value.Length; pos++)
+                value[pos] = '*';
         }
 
-        private static void LastSymbolsByPercentInternal(StringBuilder stringBuilder,
-            int startPosition, int endPosition, byte percent)
+        private static void LastSymbolsByPercentInternal(Span<char> value, byte percent)
         {
-            var valueLength = 1 + endPosition - startPosition;
-            var previewLength = valueLength * percent / 100;
-            for (var pos = startPosition + previewLength; pos <= endPosition; pos++)
-                stringBuilder[pos] = '*';
+            var previewLength = value.Length * percent / 100;
+            for (var pos = previewLength; pos < value.Length; pos++)
+                value[pos] = '*';
         }
     }
 }

@@ -1,16 +1,16 @@
-﻿using System.Text;
+﻿using System;
 
 namespace JsonMask
 {
-    internal struct StringBuilderWalker
+    internal struct CharsWalker
     {
-        private readonly StringBuilder _stringBuilder;
+        private readonly char[] _chars;
         private int _curLine;
         private int _curLinePosition;
 
-        public StringBuilderWalker(StringBuilder stringBuilder)
+        public CharsWalker(char[] chars)
         {
-            _stringBuilder = stringBuilder;
+            _chars = chars;
             _curLine = 1;
             _curLinePosition = 0;
             Position = 0;
@@ -35,19 +35,19 @@ namespace JsonMask
 
         internal void FindSymbol(char symbol)
         {
-            if (_stringBuilder[Position] == symbol)
+            if (_chars[Position] == symbol)
                 return;
             while (true)
-                if (_stringBuilder[++Position] == symbol)
+                if (_chars[++Position] == symbol)
                     return;
         }
 
         internal void FindSymbolBackWard(char symbol)
         {
-            if (_stringBuilder[Position] == symbol)
+            if (_chars[Position] == symbol)
                 return;
             while (true)
-                if (_stringBuilder[--Position] == symbol)
+                if (_chars[--Position] == symbol)
                     return;
         }
 
@@ -55,10 +55,10 @@ namespace JsonMask
         {
             while (_curLine < line)
             {
-                var ch = _stringBuilder[Position];
+                var ch = _chars[Position];
                 if (ch == '\r' || ch == '\n')
                 {
-                    if (ch == '\r' && _stringBuilder[Position + 1] == '\n')
+                    if (ch == '\r' && _chars[Position + 1] == '\n')
                         Position++;
                     _curLine++;
                 }

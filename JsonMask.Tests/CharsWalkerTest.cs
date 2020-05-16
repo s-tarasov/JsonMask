@@ -3,12 +3,12 @@ using Xunit;
 
 namespace JsonMask.Tests
 {
-    public class StringBuilderWalkerTest
+    public class CharsWalkerTest
     {
         [Fact]
         public void StartPosition()
         {
-            var walker = new StringBuilderWalker(new StringBuilder("sfsfsdsf\ndfsfdsf"));
+            var walker = new CharsWalker("sfsfsdsf\ndfsfdsf".ToCharArray());
 
             Assert.Equal(0, walker.Position);
         }
@@ -16,7 +16,7 @@ namespace JsonMask.Tests
         [Fact]
         public void GotoLine()
         {
-            var walker = new StringBuilderWalker(new StringBuilder("sfsfsdsf\ndfsfdsf"));
+            var walker = new CharsWalker("sfsfsdsf\ndfsfdsf".ToCharArray());
 
             walker.GoTo(2, 2);
 
@@ -26,7 +26,7 @@ namespace JsonMask.Tests
         [Fact]
         public void FindSymbol()
         {
-            var walker = new StringBuilderWalker(new StringBuilder("sfsfsdsf\ndfsfdsf"));
+            var walker = new CharsWalker("sfsfsdsf\ndfsfdsf".ToCharArray());
             walker.GoTo(2, 0);
 
             walker.FindSymbol('s');
@@ -37,7 +37,7 @@ namespace JsonMask.Tests
         [Fact]
         public void NextGotoLine()
         {
-            var walker = new StringBuilderWalker(new StringBuilder("sfsfsdsf\ndfsfdsf"));
+            var walker = new CharsWalker("sfsfsdsf\ndfsfdsf".ToCharArray());
             walker.GoTo(2, 2);
 
             walker.GoTo(2, 4);

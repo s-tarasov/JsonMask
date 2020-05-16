@@ -25,14 +25,10 @@ namespace JsonMask
 
         public delegate bool FieldSelector(PropertyInfo filedIfo);
 
-        public delegate void MaskValue(StringBuilder stringBuilder, int startPosition, int endPosition);
+        public delegate void MaskValue(Span<char> value);
 
         protected virtual StringBuilder GetStringBuilder(string json)
             => new StringBuilder(json);
-
-        protected virtual void ReturnStringBuilder(StringBuilder stringBuilder)
-        {
-        }
 
         public string MaskByPropertyName(string json, string propertyName)
             => Mask(json, p => p.Name == propertyName);
@@ -47,20 +43,19 @@ namespace JsonMask
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
 
-            var stringBuilder = GetStringBuilder(json);
+            var chars = json.ToCharArray();
 
             using (var jsonTextReader = new JsonTextReader(new StringReader(json)))
-                ReadAndMask(jsonTextReader, stringBuilder, selector, maskValue ?? MaskingStrategies.Full);
+                ReadAndMask(jsonTextReader, chars, selector, maskValue ?? MaskingStrategies.Full);
 
-            var maskedJson = stringBuilder.ToString();
-            ReturnStringBuilder(stringBuilder);
+            var maskedJson = new string(chars);
             return maskedJson;
         }
 
-        internal static void ReadAndMask(JsonTextReader reader, StringBuilder stringBuilder,
+        internal static void ReadAndMask(JsonTextReader reader, char[] chars,
             FieldSelector fieldSelector, MaskValue maskValue)
         {
-            var walker = new StringBuilderWalker(stringBuilder);
+            var walker = new CharsWalker(chars);
             string propertyName = null;
             var prevLine = 0;
             var prevLinePosition = 0;
@@ -79,7 +74,7 @@ namespace JsonMask
                     walker.GoTo(reader.LineNumber, reader.LinePosition);
                     walker.FindSymbolBackWard('"');
                     var endPosition = walker.Position - 1;
-                    maskValue(stringBuilder, startPosition, endPosition);
+                    maskValue(chars.AsSpan(startPosition, endPosition - startPosition + 1));
                 }
                 prevLine = reader.LineNumber;
                 prevLinePosition = reader.LinePosition;
@@ -87,4 +82,5 @@ namespace JsonMask
             while (reader.Read());
         }
     }
+    
 }

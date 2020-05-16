@@ -20,7 +20,6 @@ namespace JsonMask.Benchmarks
         };
 
         private static JsonMasker _jsonMasker = new JsonMasker();
-        private static JsonMaskerWithStringBuilderPool _jsonMaskerWithStringBuilderPool = new JsonMaskerWithStringBuilderPool();
 
         [Params("example-small.json", "example.json", "example-large.json")]
         public string FileName { get; set; }
@@ -42,10 +41,6 @@ namespace JsonMask.Benchmarks
             string Mask(string json, params string[] propertyName)
                 => Regex.Replace(json, "(" + string.Join("|", propertyName.Select(p => "\"" + p + "\"\\s*:\\s*\"")) + ")(.*?)(\")", "$1***$3");
         }
-
-        [Benchmark]
-        public string JsonMaskerWithStringBuilderPool()
-            => _jsonMaskerWithStringBuilderPool.Mask(data, f => f.Name == "name" && f.GetPath().Contains(".friends["));
 
         [Benchmark]
         public string ParseJToken()
