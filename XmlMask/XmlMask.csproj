@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard20</TargetFramework>
+	  <Platforms>x64</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>XmlMask.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <PackageReference Include="System.Memory" Version="4.5.4" />
+  </ItemGroup>
+</Project>

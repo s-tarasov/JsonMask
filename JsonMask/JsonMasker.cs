@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Buffers;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace JsonMask
 {
@@ -27,14 +27,13 @@ namespace JsonMask
 
         public delegate void MaskValue(Span<char> value);
 
-        protected virtual StringBuilder GetStringBuilder(string json)
-            => new StringBuilder(json);
+        public static ArrayPool<char> CharArrayPool { get; set; } = ArrayPool<char>.Shared;
 
-        public string MaskByPropertyName(string json, string propertyName)
-            => Mask(json, p => p.Name == propertyName);
+        public string MaskByPropertyName(string json, string propertyName, MaskValue maskValue = null)
+            => Mask(json, p => p.Name == propertyName, maskValue);
 
-        public string MaskByPropertyName(string json, params string[] propertyNames)
-            => Mask(json, p => propertyNames.Contains(p.Name));
+        public string MaskByPropertyName(string json, string[] propertyNames, MaskValue maskValue = null)
+            => Mask(json, p => propertyNames.Contains(p.Name), maskValue);        
 
         public string Mask(string json, FieldSelector selector, MaskValue maskValue = null)
         {
@@ -43,19 +42,25 @@ namespace JsonMask
             if (selector is null)
                 throw new ArgumentNullException(nameof(selector));
 
-            var chars = json.ToCharArray();
+            maskValue = maskValue ?? MaskingStrategies.Full;
+
+            var chars = CharArrayPool.Rent(json.Length);
+            json.CopyTo(0, chars, 0, json.Length);
 
             using (var jsonTextReader = new JsonTextReader(new StringReader(json)))
-                ReadAndMask(jsonTextReader, chars, selector, maskValue ?? MaskingStrategies.Full);
+                ReadAndMask(jsonTextReader, chars, selector, maskValue);
 
-            var maskedJson = new string(chars);
+            var maskedJson = new string(chars, 0, json.Length);
+
+            CharArrayPool.Return(chars);
+
             return maskedJson;
         }
 
-        internal static void ReadAndMask(JsonTextReader reader, char[] chars,
+        internal static void ReadAndMask(JsonTextReader reader, char[] chars, 
             FieldSelector fieldSelector, MaskValue maskValue)
         {
-            var walker = new CharsWalker(chars);
+            var cursor = new TextCursor(chars);
             string propertyName = null;
             var prevLine = 0;
             var prevLinePosition = 0;
@@ -67,13 +72,13 @@ namespace JsonMask
                 if (reader.TokenType == JsonToken.String && propertyName != null
                     && fieldSelector(new PropertyInfo(reader, propertyName)))
                 {
-                    walker.GoTo(prevLine, prevLinePosition);
-                    walker.FindSymbol('"');
-                    var startPosition = walker.Position + 1;
+                    cursor.GoTo(prevLine, prevLinePosition);
+                    cursor.FindSymbol('"');
+                    var startPosition = cursor.Position + 1;
 
-                    walker.GoTo(reader.LineNumber, reader.LinePosition);
-                    walker.FindSymbolBackWard('"');
-                    var endPosition = walker.Position - 1;
+                    cursor.GoTo(reader.LineNumber, reader.LinePosition);
+                    cursor.FindSymbolBackWard('"');
+                    var endPosition = cursor.Position - 1;
                     maskValue(chars.AsSpan(startPosition, endPosition - startPosition + 1));
                 }
                 prevLine = reader.LineNumber;

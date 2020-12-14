@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace JsonMask
+﻿namespace JsonMask
 {
-    internal struct CharsWalker
+    internal struct TextCursor
     {
         private readonly char[] _chars;
         private int _curLine;
         private int _curLinePosition;
 
-        public CharsWalker(char[] chars)
+        public TextCursor(char[] chars)
         {
             _chars = chars;
             _curLine = 1;

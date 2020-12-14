@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JsonMask\JsonMask.csproj" />
+    <ProjectReference Include="..\XmlMask\XmlMask.csproj" />
   </ItemGroup>
 
 </Project>

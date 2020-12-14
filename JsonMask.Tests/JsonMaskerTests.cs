@@ -15,7 +15,7 @@ namespace JsonMask.Tests
   ""test"": ""test"",
 }";
 
-            var maskedJson = _masker.MaskByPropertyName(json, "code", "fake");
+            var maskedJson = _masker.MaskByPropertyName(json, new []{ "code", "fake" });
 
             Assert.Equal(
 @"{

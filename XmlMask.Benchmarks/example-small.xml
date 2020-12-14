@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- not valid: DOCTYPE mondial SYSTEM "mondial-3.0.dtd"-->
+<mondial >
+  <continent id='f0_119'
+    name='Europe'/>
+  <continent id='f0_123'
+    name='Asia'/>
+  <continent id='f0_126'
+    name='America'/>
+  <continent id='f0_129'
+    name='Australia/Oceania'/>
+  <continent id='f0_132'
+    name='Africa'/>
+  <country id='f0_136'
+    name='Albania'
+    capital='f0_1461'
+    population='3249136'
+    datacode='AL'
+    total_area='28750'
+    population_growth='1.34'
+    infant_mortality='49.2'
+    gdp_agri='55'
+    gdp_total='4100'
+    inflation='16'
+    indep_date='28 11 1912'
+    government='emerging democracy'
+    car_code='AL'>
+    <name >
+      Albania
+    </name>
+    <city id='f0_1461'
+      country='f0_136'
+      longitude='10.7'
+      latitude='46.2'>
+      <name >
+        Tirane
+      </name>
+      <population  year='87'>
+        192000
+      </population>
+    </city>
+    <city id='f0_36498'
+      country='f0_136'
+      longitude='19.2'
+      latitude='42.2'>
+      <name >
+        Shkoder
+      </name>
+      <population  year='87'>
+        62000
+      </population>
+      <located_at
+        type='lake'
+        water='f0_39058'/>
+    </city>
+    <city id='f0_36504'
+      country='f0_136'
+      longitude='19.3'
+      latitude='41.2'>
+      <name >
+        Durres
+      </name>
+      <population  year='87'>
+        60000
+      </population>
+      <located_at
+        type='sea'
+        water='f0_38042'/>
+    </city>
+    <city id='f0_36509'
+      country='f0_136'
+      longitude='19.3'
+      latitude='40.3'>
+      <name >
+        Vlore
+      </name>
+      <population  year='87'>
+        56000
+      </population>
+      <located_at
+        type='sea'
+        water='f0_38042'/>
+    </city>
+    <city id='f0_36514'
+      country='f0_136'
+      longitude='20.1'
+      latitude='41.1'>
+      <name >
+        Elbasan
+      </name>
+      <population  year='87'>
+        53000
+      </population>
+    </city>
+    <city id='f0_36518'
+      country='f0_136'
+      longitude='20.5'
+      latitude='40.4'>
+      <name >
+        Korce
+      </name>
+      <population  year='87'>
+        52000
+      </population>
+    </city>
+    <ethnicgroups  percentage='3'>
+      Greeks
+    </ethnicgroups>
+    <ethnicgroups  percentage='95'>
+      Albanian
+    </ethnicgroups>
+    <religions  percentage='70'>
+      Muslim
+    </religions>
+    <religions  percentage='10'>
+      Roman Catholic
+    </religions>
+    <religions  percentage='20'>
+      Albanian Orthodox
+    </religions>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='282' country='f0_232'/>
+    <border  length='151' country='f0_300'/>
+    <border  length='287' country='f0_370'/>
+  </country>
+</mondial>

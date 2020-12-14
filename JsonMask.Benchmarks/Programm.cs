@@ -1,5 +1,4 @@
-﻿using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Running;
 
 namespace JsonMask.Benchmarks
 {
@@ -7,7 +6,7 @@ namespace JsonMask.Benchmarks
     {
         public static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<Benchmark>(/*new DebugInProcessConfig()*/);
+            var summary = BenchmarkRunner.Run<Benchmark>();
         }
     }
 }

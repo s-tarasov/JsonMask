@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>XmlMask.Benchmarks.Benchmark-20201220-141748</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19041.685 (2004/?/20H1)
+Intel Core i7-6700HQ CPU 2.60GHz (Skylake), 1 CPU, 8 logical and 4 physical cores
+  [Host]     : .NET Framework 4.8 (4.8.4300.0), X64 RyuJIT
+  Job-RMAIOO : .NET Framework 4.8 (4.8.4300.0), X64 RyuJIT
+</code></pre>
+<pre><code>Force=False  IterationCount=15  LaunchCount=2  
+WarmupCount=10  
+</code></pre>
+
+<table>
+<thead><tr><th>                      Method</th><th>   FileName</th><th>  Mean</th><th> Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>XmlMasker_MaskByElementName</td><td>example-large.xml</td><td>14,242.27 &mu;s</td><td>197.811 &mu;s</td><td>277.304 &mu;s</td><td>234.3750</td><td>234.3750</td><td>234.3750</td><td>3502.21 KB</td>
+</tr><tr><td>XmlMasker_MaskByUnknownElementName</td><td>example-large.xml</td><td>10,932.33 &mu;s</td><td>121.987 &mu;s</td><td>182.584 &mu;s</td><td>234.3750</td><td>234.3750</td><td>234.3750</td><td>3502.21 KB</td>
+</tr><tr><td>XmlMasker_MaskByXpath</td><td>example-large.xml</td><td>36,157.21 &mu;s</td><td>921.508 &mu;s</td><td>1,350.735 &mu;s</td><td>800.0000</td><td>533.3333</td><td>333.3333</td><td>10837.55 KB</td>
+</tr><tr><td>RegEx_Replace</td><td>example-large.xml</td><td>12,378.63 &mu;s</td><td>277.197 &mu;s</td><td>406.312 &mu;s</td><td>890.6250</td><td>625.0000</td><td>312.5000</td><td>7869.25 KB</td>
+</tr><tr><td>XSLT</td><td>example-large.xml</td><td>61,444.09 &mu;s</td><td>1,355.657 &mu;s</td><td>1,944.243 &mu;s</td><td>2777.7778</td><td>1777.7778</td><td>888.8889</td><td>18586.68 KB</td>
+</tr><tr><td>XDocument_ParseAndSerialize</td><td>example-large.xml</td><td>42,074.62 &mu;s</td><td>1,034.663 &mu;s</td><td>1,483.883 &mu;s</td><td>2384.6154</td><td>1000.0000</td><td>461.5385</td><td>12201.97 KB</td>
+</tr><tr><td>XmlMasker_MaskByElementName</td><td>example-small.xml</td><td>26.59 &mu;s</td><td>0.444 &mu;s</td><td>0.651 &mu;s</td><td>6.9580</td><td>-</td><td>-</td><td>21.45 KB</td>
+</tr><tr><td>XmlMasker_MaskByUnknownElementName</td><td>example-small.xml</td><td>20.28 &mu;s</td><td>0.374 &mu;s</td><td>0.548 &mu;s</td><td>6.9580</td><td>0.0305</td><td>-</td><td>21.45 KB</td>
+</tr><tr><td>XmlMasker_MaskByXpath</td><td>example-small.xml</td><td>56.36 &mu;s</td><td>1.224 &mu;s</td><td>1.794 &mu;s</td><td>14.2822</td><td>-</td><td>-</td><td>44.04 KB</td>
+</tr><tr><td>RegEx_Replace</td><td>example-small.xml</td><td>17.15 &mu;s</td><td>0.285 &mu;s</td><td>0.427 &mu;s</td><td>5.0354</td><td>-</td><td>-</td><td>15.57 KB</td>
+</tr><tr><td>XSLT</td><td>example-small.xml</td><td>99.49 &mu;s</td><td>0.822 &mu;s</td><td>1.230 &mu;s</td><td>20.2637</td><td>0.1221</td><td>-</td><td>62.59 KB</td>
+</tr><tr><td>XDocument_ParseAndSerialize</td><td>example-small.xml</td><td>55.01 &mu;s</td><td>0.585 &mu;s</td><td>0.875 &mu;s</td><td>16.7236</td><td>-</td><td>-</td><td>51.51 KB</td>
+</tr><tr><td>XmlMasker_MaskByElementName</td><td>example.xml</td><td>196.65 &mu;s</td><td>3.036 &mu;s</td><td>4.450 &mu;s</td><td>20.2637</td><td>-</td><td>-</td><td>63.61 KB</td>
+</tr><tr><td>XmlMasker_MaskByUnknownElementName</td><td>example.xml</td><td>133.62 &mu;s</td><td>3.180 &mu;s</td><td>4.760 &mu;s</td><td>20.2637</td><td>0.2441</td><td>-</td><td>63.61 KB</td>
+</tr><tr><td>XmlMasker_MaskByXpath</td><td>example.xml</td><td>393.25 &mu;s</td><td>2.376 &mu;s</td><td>3.483 &mu;s</td><td>59.0820</td><td>0.4883</td><td>-</td><td>183.54 KB</td>
+</tr><tr><td>RegEx_Replace</td><td>example.xml</td><td>109.20 &mu;s</td><td>0.983 &mu;s</td><td>1.471 &mu;s</td><td>38.4521</td><td>-</td><td>-</td><td>118.76 KB</td>
+</tr><tr><td>XSLT</td><td>example.xml</td><td>759.35 &mu;s</td><td>7.019 &mu;s</td><td>10.506 &mu;s</td><td>82.0313</td><td>20.5078</td><td>-</td><td>298.17 KB</td>
+</tr><tr><td>XDocument_ParseAndSerialize</td><td>example.xml</td><td>391.76 &mu;s</td><td>4.903 &mu;s</td><td>6.873 &mu;s</td><td>62.0117</td><td>5.3711</td><td>0.4883</td><td>195.86 KB</td>
+</tr></tbody></table>
+</body>
+</html>

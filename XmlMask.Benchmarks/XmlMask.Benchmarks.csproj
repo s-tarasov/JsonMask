@@ -11,23 +11,27 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
-    <PackageReference Include="JsonMasking" Version="1.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="System.Text.Json" Version="5.0.0" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.12.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JsonMask\JsonMask.csproj" />
+    <ProjectReference Include="..\XmlMask\XmlMask.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="example-large.json">
+    <None Update="example-large.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="example-small.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="example.xsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="example-small.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="example.json">
+    <None Update="example.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

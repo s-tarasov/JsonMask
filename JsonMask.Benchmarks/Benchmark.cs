@@ -1,6 +1,8 @@
 ﻿using BenchmarkDotNet.Attributes;
 using JsonMasking;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +11,8 @@ using System.Text.RegularExpressions;
 namespace JsonMask.Benchmarks
 {
     [MemoryDiagnoser]
+    [MarkdownExporterAttribute.GitHub]
+    [GcForce(value: false)]
     public class Benchmark
     {
         private string data;
@@ -28,33 +32,25 @@ namespace JsonMask.Benchmarks
         public void GlobalSetup()
         {
             data = _contents[FileName];
+            JsonMasker.CharArrayPool = ArrayPool<char>.Create(10 * 1024 * 1024, 5);
         }
 
         [Benchmark]
-        public string JsonMasker() => _jsonMasker.Mask(data, f => f.Name == "name" && f.GetPath().Contains(".friends["));
+        public string JsonMasker_MaskByPath() => _jsonMasker.Mask(data, f => f.Name == "name" && f.GetPath().Contains(".friends["));
 
         [Benchmark]
-        public string RegExMasker()
-        {
-            return Mask(data, "name");
-
-            string Mask(string json, params string[] propertyName)
-                => Regex.Replace(json, "(" + string.Join("|", propertyName.Select(p => "\"" + p + "\"\\s*:\\s*\"")) + ")(.*?)(\")", "$1***$3");
-        }
+        public string JsonMasker_MaskByPropertyName() => _jsonMasker.MaskByPropertyName(data, "name");
 
         [Benchmark]
-        public string ParseJToken()
-        {
-            var obj = JObject.Parse(data);
-            return "fake";
-        }
+        public string RegEx_ReplaceByPropertyName() => MaskByRegex(data, "name");
 
-        static string[] blacklist = new[] { "*.friends[*.name" };
+        private static string MaskByRegex(string json, params string[] propertyName) 
+            => Regex.Replace(json, "(" + string.Join("|", propertyName.Select(p => "\"" + p + "\"\\s*:\\s*\"")) + ")(.*?)(\")", "$1***$3");
 
         [Benchmark]
-        public string MaskFields()
-        {
-            return data.MaskFields(blacklist, "***");
-        }
+        public string JObject_ParseAndSerialize() => JObject.Parse(data).ToString(Formatting.None);
+
+        [Benchmark]
+        public string JsonMasking_MaskFieldsByPath() => data.MaskFields(new[] { "*.friends[*.name" }, "***");
     }
 }

@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- not valid: DOCTYPE mondial SYSTEM "mondial-3.0.dtd"-->
+<mondial >
+  <continent id='f0_119'
+    name='Europe'/>
+  <continent id='f0_123'
+    name='Asia'/>
+  <continent id='f0_126'
+    name='America'/>
+  <continent id='f0_129'
+    name='Australia/Oceania'/>
+  <continent id='f0_132'
+    name='Africa'/>
+  <country id='f0_136'
+    name='Albania'
+    capital='f0_1461'
+    population='3249136'
+    datacode='AL'
+    total_area='28750'
+    population_growth='1.34'
+    infant_mortality='49.2'
+    gdp_agri='55'
+    gdp_total='4100'
+    inflation='16'
+    indep_date='28 11 1912'
+    government='emerging democracy'
+    car_code='AL'>
+    <name >
+      Albania
+    </name>
+    <city id='f0_1461'
+      country='f0_136'
+      longitude='10.7'
+      latitude='46.2'>
+      <name >
+        Tirane
+      </name>
+      <population  year='87'>
+        192000
+      </population>
+    </city>
+    <city id='f0_36498'
+      country='f0_136'
+      longitude='19.2'
+      latitude='42.2'>
+      <name >
+        Shkoder
+      </name>
+      <population  year='87'>
+        62000
+      </population>
+      <located_at
+        type='lake'
+        water='f0_39058'/>
+    </city>
+    <city id='f0_36504'
+      country='f0_136'
+      longitude='19.3'
+      latitude='41.2'>
+      <name >
+        Durres
+      </name>
+      <population  year='87'>
+        60000
+      </population>
+      <located_at
+        type='sea'
+        water='f0_38042'/>
+    </city>
+    <city id='f0_36509'
+      country='f0_136'
+      longitude='19.3'
+      latitude='40.3'>
+      <name >
+        Vlore
+      </name>
+      <population  year='87'>
+        56000
+      </population>
+      <located_at
+        type='sea'
+        water='f0_38042'/>
+    </city>
+    <city id='f0_36514'
+      country='f0_136'
+      longitude='20.1'
+      latitude='41.1'>
+      <name >
+        Elbasan
+      </name>
+      <population  year='87'>
+        53000
+      </population>
+    </city>
+    <city id='f0_36518'
+      country='f0_136'
+      longitude='20.5'
+      latitude='40.4'>
+      <name >
+        Korce
+      </name>
+      <population  year='87'>
+        52000
+      </population>
+    </city>
+    <ethnicgroups  percentage='3'>
+      Greeks
+    </ethnicgroups>
+    <ethnicgroups  percentage='95'>
+      Albanian
+    </ethnicgroups>
+    <religions  percentage='70'>
+      Muslim
+    </religions>
+    <religions  percentage='10'>
+      Roman Catholic
+    </religions>
+    <religions  percentage='20'>
+      Albanian Orthodox
+    </religions>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='282' country='f0_232'/>
+    <border  length='151' country='f0_300'/>
+    <border  length='287' country='f0_370'/>
+  </country>
+  <country id='f0_144'
+    name='Andorra'
+    capital='f0_1464'
+    population='72766'
+    datacode='AN'
+    total_area='450'
+    population_growth='2.96'
+    infant_mortality='2.2'
+    gdp_total='1000'
+    government='
+    parliamentary democracy that retains as its heads of state a coprincipality'
+    car_code='AND'>
+    <name >
+      Andorra
+    </name>
+    <city id='f0_1464'
+      country='f0_144'
+      longitude='1.3'
+      latitude='42.3'>
+      <name >
+        Andorra la Vella
+      </name>
+      <population  year='87'>
+        15600
+      </population>
+    </city>
+    <ethnicgroups  percentage='6'>
+      French
+    </ethnicgroups>
+    <ethnicgroups  percentage='61'>
+      Spanish
+    </ethnicgroups>
+    <ethnicgroups  percentage='30'>
+      Andorran
+    </ethnicgroups>
+    <religions  percentage='100'>
+      Roman Catholic
+    </religions>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='60' country='f0_213'/>
+    <border  length='65' country='f0_385'/>
+  </country>
+  <country id='f0_149'
+    name='Austria'
+    capital='f0_1467'
+    population='8023244'
+    datacode='AU'
+    total_area='83850'
+    population_growth='0.41'
+    infant_mortality='6.2'
+    gdp_agri='2'
+    gdp_total='152000'
+    inflation='2.3'
+    indep_date='12 11 1918'
+    government='federal republic'
+    gdp_ind='34'
+    gdp_serv='64'
+    car_code='A'>
+    <name >
+      Austria
+    </name>
+    <province id='f0_17440'
+      name='Burgenland'
+      country='f0_149'
+      capital='f0_2291'
+      population='273000'
+      area='3965'>
+      <city id='f0_2291'
+        country='f0_149'
+        province='f0_17440'
+        longitude='16'
+        latitude='48'>
+        <name >
+          Eisenstadt
+        </name>
+        <population  year='87'>
+          10102
+        </population>
+      </city>
+    </province>
+    <province id='f0_17443'
+      name='Carinthia'
+      country='f0_149'
+      capital='f0_2296'
+      population='559000'
+      area='9533'>
+      <city id='f0_2296'
+        country='f0_149'
+        province='f0_17443'
+        longitude='14.21'
+        latitude='46.38'>
+        <name >
+          Klagenfurt
+        </name>
+        <population  year='87'>
+          87321
+        </population>
+      </city>
+    </province>
+    <province id='f0_17445'
+      name='Vorarlberg'
+      country='f0_149'
+      capital='f0_2301'
+      population='341000'
+      area='2601'>
+      <city id='f0_2301'
+        country='f0_149'
+        province='f0_17445'
+        longitude='9.45'
+        latitude='47.3'>
+        <name >
+          Bregenz
+        </name>
+      </city>
+    </province>
+    <province id='f0_17447'
+      name='Vienna'
+      country='f0_149'
+      capital='f0_1467'
+      population='1583000'
+      area='415'>
+      <city id='f0_1467'
+        country='f0_149'
+        province='f0_17447'
+        longitude='16.3667'
+        latitude='48.25'>
+        <name >
+          Vienna
+        </name>
+        <population  year='94'>
+          1583000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17448'
+      name='Upper Austria'
+      country='f0_149'
+      capital='f0_2267'
+      population='1373000'
+      area='11979'>
+      <city id='f0_2267'
+        country='f0_149'
+        province='f0_17448'
+        longitude='14.18'
+        latitude='48.18'>
+        <name >
+          Linz
+        </name>
+        <population  year='94'>
+          203000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17450'
+      name='Tyrol'
+      country='f0_149'
+      capital='f0_2273'
+      population='649000'
+      area='12647'>
+      <city id='f0_2273'
+        country='f0_149'
+        province='f0_17450'
+        longitude='11.22'
+        latitude='47.17'>
+        <name >
+          Innsbruck
+        </name>
+        <population  year='94'>
+          118000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17452'
+      name='Styria'
+      country='f0_149'
+      capital='f0_2279'
+      population='1203000'
+      area='16386'>
+      <city id='f0_2279'
+        country='f0_149'
+        province='f0_17452'
+        longitude='15.26'
+        latitude='47.4'>
+        <name >
+          Graz
+        </name>
+        <population  year='94'>
+          238000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17454'
+      name='Salzburg'
+      country='f0_149'
+      capital='f0_2285'
+      population='501000'
+      area='7154'>
+      <city id='f0_2285'
+        country='f0_149'
+        province='f0_17454'
+        longitude='13.2'
+        latitude='47.49'>
+        <name >
+          Salzburg
+        </name>
+        <population  year='94'>
+          144000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17455'
+      name='Lower Austria'
+      country='f0_149'
+      capital='f0_2306'
+      population='1507000'
+      area='19170'>
+      <city id='f0_2306'
+        country='f0_149'
+        province='f0_17455'
+        longitude='15.38'
+        latitude='48.13'>
+        <name >
+          St. Polten
+        </name>
+        <population  year='87'>
+          51102
+        </population>
+      </city>
+    </province>
+    <ethnicgroups  percentage='99.4'>
+      German
+    </ethnicgroups>
+    <ethnicgroups  percentage='0.2'>
+      Slovene
+    </ethnicgroups>
+    <ethnicgroups  percentage='0.3'>
+      Croatian
+    </ethnicgroups>
+    <religions  percentage='85'>
+      Roman Catholic
+    </religions>
+    <religions  percentage='6'>
+      Protestant
+    </religions>
+    <languages  percentage='100'>
+      German
+    </languages>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='362' country='f0_184'/>
+    <border  length='784' country='f0_220'/>
+    <border  length='366' country='f0_251'/>
+    <border  length='430' country='f0_268'/>
+    <border  length='37' country='f0_285'/>
+    <border  length='91' country='f0_375'/>
+    <border  length='324' country='f0_380'/>
+    <border  length='164' country='f0_404'/>
+  </country>
+  <country id='f0_157'
+    name='Belarus'
+    capital='f0_1474'
+    population='10415973'
+    datacode='BO'
+    total_area='207600'
+    population_growth='0.2'
+    infant_mortality='13.4'
+    gdp_agri='21'
+    gdp_total='49200'
+    inflation='244'
+    indep_date='25 08 1991'
+    government='republic'
+    gdp_ind='49'
+    gdp_serv='30'
+    car_code='BY'>
+    <name >
+      Belarus
+    </name>
+    <city id='f0_1474'
+      country='f0_157'
+      longitude='27.55'
+      latitude='53.9'>
+      <name >
+        Minsk
+      </name>
+      <population  year='87'>
+        1540000
+      </population>
+    </city>
+    <ethnicgroups  percentage='4.1'>
+      Polish
+    </ethnicgroups>
+    <ethnicgroups  percentage='2.9'>
+      Ukrainian
+    </ethnicgroups>
+    <ethnicgroups  percentage='13.2'>
+      Russian
+    </ethnicgroups>
+    <ethnicgroups  percentage='77.9'>
+      Byelorussian
+    </ethnicgroups>
+    <religions  percentage='60'>
+      Eastern Orthodox
+    </religions>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='141' country='f0_280'/>
+    <border  length='502' country='f0_290'/>
+    <border  length='605' country='f0_337'/>
+    <border  length='891' country='f0_411'/>
+    <border  length='959' country='f0_358'/>
+  </country>
+  <country id='f0_162'
+    name='Belgium'
+    capital='f0_1477'
+    population='10170241'
+    datacode='BE'
+    total_area='30510'
+    population_growth='0.33'
+    infant_mortality='6.4'
+    gdp_agri='2'
+    gdp_total='197000'
+    inflation='1.6'
+    indep_date='04 10 1830'
+    government='constitutional monarchy'
+    gdp_ind='28'
+    gdp_serv='70'
+    car_code='B'>
+    <name >
+      Belgium
+    </name>
+    <province id='f0_17457'
+      name='Antwerp'
+      country='f0_162'
+      capital='f0_2311'
+      population='1610695'
+      area='2867'>
+      <city id='f0_2311'
+        country='f0_162'
+        province='f0_17457'
+        longitude='4.23'
+        latitude='51.1'>
+        <name >
+          Antwerp
+        </name>
+        <population  year='95'>
+          459072
+        </population>
+      </city>
+    </province>
+    <province id='f0_17458'
+      name='Brabant'
+      country='f0_162'
+      capital='f0_1477'
+      population='2253794'
+      area='3358'>
+      <city id='f0_1477'
+        country='f0_162'
+        province='f0_17458'
+        longitude='4.35'
+        latitude='50.8'>
+        <name >
+          Brussels
+        </name>
+        <name >
+          Agglomeration
+        </name>
+        <population  year='95'>
+          951580
+        </population>
+      </city>
+    </province>
+    <province id='f0_17460'
+      name='East Flanders'
+      country='f0_162'
+      capital='f0_2317'
+      population='1340056'
+      area='2982'>
+      <city id='f0_2317'
+        country='f0_162'
+        province='f0_17460'
+        longitude='3.5'
+        latitude='51.4'>
+        <name >
+          Ghent
+        </name>
+        <population  year='95'>
+          227483
+        </population>
+      </city>
+    </province>
+    <province id='f0_17462'
+      name='Hainaut'
+      country='f0_162'
+      capital='f0_2345'
+      population='1283252'
+      area='3787'>
+      <city id='f0_2335'
+        country='f0_162'
+        province='f0_17462'>
+        <name >
+          Charleroi
+        </name>
+        <population  year='95'>
+          206491
+        </population>
+      </city>
+      <city id='f0_2345'
+        country='f0_162'
+        province='f0_17462'
+        longitude='3.6'
+        latitude='50.3'>
+        <name >
+          Mons
+        </name>
+        <population  year='87'>
+          90720
+        </population>
+      </city>
+    </province>
+    <province id='f0_17464'
+      name='Liege'
+      country='f0_162'
+      capital='f0_2323'
+      population='1006081'
+      area='3862'>
+      <city id='f0_2323'
+        country='f0_162'
+        province='f0_17464'
+        longitude='5.5'
+        latitude='50.5'>
+        <name >
+          Liege
+        </name>
+        <population  year='95'>
+          192393
+        </population>
+      </city>
+    </province>
+    <province id='f0_17465'
+      name='Limburg'
+      country='f0_162'
+      capital='f0_2350'
+      population='755593'
+      area='2422'>
+      <city id='f0_2350'
+        country='f0_162'
+        province='f0_17465'
+        longitude='5.2'
+        latitude='50.7'>
+        <name >
+          Hasselt
+        </name>
+        <population  year='87'>
+          65348
+        </population>
+      </city>
+    </province>
+    <province id='f0_17467'
+      name='Luxembourg'
+      country='f0_162'
+      capital='f0_2355'
+      population='234664'
+      area='4441'>
+      <city id='f0_2355'
+        country='f0_162'
+        province='f0_17467'
+        longitude='5.5'
+        latitude='49.4'>
+        <name >
+          Arlon
+        </name>
+        <population  year='87'>
+          23150
+        </population>
+      </city>
+    </province>
+    <province id='f0_17468'
+      name='Namur'
+      country='f0_162'
+      capital='f0_2329'
+      population='426305'
+      area='3665'>
+      <city id='f0_2329'
+        country='f0_162'
+        province='f0_17468'
+        longitude='4.5'
+        latitude='50.3'>
+        <name >
+          Namur
+        </name>
+        <population  year='95'>
+          105014
+        </population>
+      </city>
+    </province>
+    <province id='f0_17469'
+      name='West Flanders'
+      country='f0_162'
+      capital='f0_2360'
+      population='1111557'
+      area='3134'>
+      <city id='f0_2340'
+        country='f0_162'
+        province='f0_17469'>
+        <name >
+          Bruges
+        </name>
+        <population  year='95'>
+          116273
+        </population>
+      </city>
+      <city id='f0_2360'
+        country='f0_162'
+        province='f0_17469'>
+        <name >
+          Brugge
+        </name>
+      </city>
+      <city id='f0_36771'
+        country='f0_162'
+        province='f0_17469'
+        longitude='2.08'
+        latitude='51.1'>
+        <name >
+          Bruegge
+        </name>
+        <population  year='87'>
+          117799
+        </population>
+      </city>
+    </province>
+    <ethnicgroups  percentage='55'>
+      Fleming
+    </ethnicgroups>
+    <ethnicgroups  percentage='33'>
+      Walloon
+    </ethnicgroups>
+    <religions  percentage='75'>
+      Roman Catholic
+    </religions>
+    <religions  percentage='25'>
+      Protestant
+    </religions>
+    <languages  percentage='32'>
+      French
+    </languages>
+    <languages  percentage='1'>
+      German
+    </languages>
+    <languages  percentage='56'>
+      Dutch
+    </languages>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='620' country='f0_213'/>
+    <border  length='167' country='f0_220'/>
+    <border  length='148' country='f0_295'/>
+    <border  length='450' country='f0_325'/>
+  </country>
+  <country id='f0_169'
+    name='Bosnia and Herzegovina'
+    capital='f0_1484'
+    population='2656240'
+    datacode='BK'
+    total_area='51233'
+    population_growth='-2.84'
+    infant_mortality='43.2'
+    gdp_total='1000'
+    indep_date='01 04 1992'
+    government='emerging democracy'
+    car_code='BIH'>
+    <name >
+      Bosnia and Herzegovina
+    </name>
+    <city id='f0_1484'
+      country='f0_169'>
+      <name >
+        Sarajevo
+      </name>
+    </city>
+    <ethnicgroups  percentage='38'>
+      Muslim
+    </ethnicgroups>
+    <ethnicgroups  percentage='40'>
+      Serb
+    </ethnicgroups>
+    <ethnicgroups  percentage='22'>
+      Croat
+    </ethnicgroups>
+    <religions  percentage='40'>
+      Muslim
+    </religions>
+    <religions  percentage='4'>
+      Protestant
+    </religions>
+    <religions  percentage='31'>
+      Orthodox
+    </religions>
+    <religions  percentage='15'>
+      Catholic
+    </religions>
+    <languages  percentage='99'>
+      Serbo-Croatian
+    </languages>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='932' country='f0_179'/>
+    <border  length='527' country='f0_370'/>
+  </country>
+  <country id='f0_174'
+    name='Bulgaria'
+    capital='f0_1487'
+    population='8612757'
+    datacode='BU'
+    total_area='110910'
+    population_growth='0.46'
+    infant_mortality='15.7'
+    gdp_agri='12'
+    gdp_total='43200'
+    inflation='35'
+    indep_date='22 09 1908'
+    government='emerging democracy'
+    gdp_ind='36'
+    gdp_serv='52'
+    car_code='BG'>
+    <name >
+      Bulgaria
+    </name>
+    <city id='f0_1487'
+      country='f0_174'
+      longitude='23.3333'
+      latitude='42.7'>
+      <name >
+        Sofia
+      </name>
+      <population  year='87'>
+        1300000
+      </population>
+    </city>
+    <ethnicgroups  percentage='0.2'>
+      Russian
+    </ethnicgroups>
+    <ethnicgroups  percentage='2.6'>
+      Gypsy
+    </ethnicgroups>
+    <ethnicgroups  percentage='8.5'>
+      Turk
+    </ethnicgroups>
+    <ethnicgroups  percentage='85.3'>
+      Bulgarian
+    </ethnicgroups>
+    <ethnicgroups  percentage='0.3'>
+      Armenian
+    </ethnicgroups>
+    <ethnicgroups  percentage='2.5'>
+      Macedonian
+    </ethnicgroups>
+    <religions  percentage='13'>
+      Muslim
+    </religions>
+    <religions  percentage='0.8'>
+      Jewish
+    </religions>
+    <religions  percentage='0.5'>
+      Roman Catholic
+    </religions>
+    <religions  percentage='85'>
+      Bulgarian Orthodox
+    </religions>
+    <religions  percentage='0.2'>
+      Uniate Catholic
+    </religions>
+    <languages  percentage='100'>
+      Bulgarian
+    </languages>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='494' country='f0_232'/>
+    <border  length='148' country='f0_300'/>
+    <border  length='608' country='f0_351'/>
+    <border  length='318' country='f0_370'/>
+    <border  length='240' country='f0_670'/>
+  </country>
+  <country id='f0_179'
+    name='Croatia'
+    capital='f0_1490'
+    population='5004112'
+    datacode='HR'
+    total_area='56538'
+    population_growth='0.58'
+    infant_mortality='10.2'
+    gdp_agri='12.7'
+    gdp_total='20100'
+    inflation='3.7'
+    indep_date='25 06 1991'
+    government='parliamentary democracy'
+    gdp_ind='30.6'
+    gdp_serv='56.7'
+    car_code='HR'>
+    <name >
+      Croatia
+    </name>
+    <city id='f0_1490'
+      country='f0_179'>
+      <name >
+        Zagreb
+      </name>
+    </city>
+    <ethnicgroups  percentage='0.9'>
+      Muslim
+    </ethnicgroups>
+    <ethnicgroups  percentage='12'>
+      Serb
+    </ethnicgroups>
+    <ethnicgroups  percentage='78'>
+      Croat
+    </ethnicgroups>
+    <ethnicgroups  percentage='0.5'>
+      Hungarian
+    </ethnicgroups>
+    <ethnicgroups  percentage='0.5'>
+      Slovenian
+    </ethnicgroups>
+    <religions  percentage='0.4'>
+      Protestant
+    </religions>
+    <religions  percentage='11.1'>
+      Orthodox
+    </religions>
+    <religions  percentage='76.5'>
+      Catholic
+    </religions>
+    <religions  percentage='1.2'>
+      Slavic Muslim
+    </religions>
+    <languages  percentage='96'>
+      Serbo-Croatian
+    </languages>
+    <encompassed
+      continent='f0_119'
+      percentage='100'/>
+    <border  length='932' country='f0_169'/>
+    <border  length='329' country='f0_251'/>
+    <border  length='266' country='f0_370'/>
+    <border  length='546' country='f0_380'/>
+  </country>
+  <country id='f0_184'
+    name='Czech Republic'
+    capital='f0_1493'
+    population='10321120'
+    datacode='EZ'
+    total_area='78703'
+    population_growth='-0.03'
+    infant_mortality='8.4'
+    gdp_agri='5.8'
+    gdp_total='106200'
+    inflation='9.1'
+    indep_date='01 01 1993'
+    government='parliamentary democracy'
+    gdp_ind='40.7'
+    gdp_serv='53.5'
+    car_code='CZ'>
+    <name >
+      Czech Rep.
+    </name>
+    <name >
+      Czech Republic
+    </name>
+    <province id='f0_17471'
+      name='Jihocesky'
+      country='f0_184'
+      capital='f0_2365'
+      population='702000'
+      area='11345'>
+      <city id='f0_2365'
+        country='f0_184'
+        province='f0_17471'>
+        <name >
+          Ceske Budejovice
+        </name>
+        <population  year='90'>
+          174000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17473'
+      name='Jihomoravsky'
+      country='f0_184'
+      capital='f0_2371'
+      population='2059000'
+      area='15028'>
+      <city id='f0_2371'
+        country='f0_184'
+        province='f0_17473'>
+        <name >
+          Brno
+        </name>
+        <population  year='90'>
+          393000
+        </population>
+      </city>
+      <city id='f0_2394'
+        country='f0_184'
+        province='f0_17473'>
+        <name >
+          Zlin
+        </name>
+        <population  year='90'>
+          198000
+        </population>
+      </city>
+    </province>
+    <province id='f0_17475'
+      name='Severocesky'
+      country='f0_184'
+      capital='f0_2415'
+      population='1190000'
+      area='7819'>
+      <city id='f0_2410'
+        country='f0_184'
+        province='f0_17475'>
+        <name >
+          Liberec
+        </name>
+        <population  year='90'>
+          160000
+        </population>
+      </city>
+      <city id='f0_2415'
+        country='f0_184'
+        province='f0_17475'>
+        <name >
+          Usti nad Labem
+        </name>
+      </city>
+    </province>
+    <province id='f0_17477'
+      name='Severomoravsky'
+      country='f0_184'
+      capital='f0_2377'
+      population='1976000'
+      area='11067'>
+      <city id='f0_2377'
+        country='f0_184'
+        province='f0_17477'>
+        <name >
+          Ostrava
+        </name>
+        <population  year='90'>
+          332000
+        </population>
+      </city>
+      <city id='f0_2389'
+        country='f0_184'
+        province='f0_17477'>
+        <name >
+          Olomouc
+        </name>
+        <population  year='90'>
+          225000
+        </population>
+      </city>
+    </province>
+  </country>
+</mondial>
