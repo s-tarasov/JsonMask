@@ -8,7 +8,7 @@
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>JsonMask.Tests</_Parameter1>
     </AssemblyAttribute>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Memory" Version="4.5.4" />
   </ItemGroup>
 </Project>
