@@ -3,7 +3,8 @@
 public class Utf8JsonMaskingPushStreamTests
 {
     private Utf8JsonMasker _masker;
-    private FieldSelector _fieldSelector = b => "key"u8.SequenceEqual(b);
+    private FieldUtf8Selector _fieldSelector = bytes
+    => "key"u8.SequenceEqual(bytes) ? Utf8MaskingStrategies.Full : null;
 
     public Utf8JsonMaskingPushStreamTests()
     {

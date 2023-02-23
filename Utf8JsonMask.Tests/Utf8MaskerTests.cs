@@ -3,7 +3,10 @@
 public class Utf8JsonMaskerTests
 {
     private Utf8JsonMasker _sut;
-    private FieldSelector _fieldSelector = b => "secretKey"u8.SequenceEqual(b);
+    private FieldUtf8Selector _fieldSelector =
+        bytes => "secretKey"u8.SequenceEqual(bytes)
+        ? Utf8MaskingStrategies.Full
+        : null;
 
     public Utf8JsonMaskerTests()
     {
@@ -32,6 +35,31 @@ public class Utf8JsonMaskerTests
                 """u8, _sut.MaskedBytes);
     }
 
+    [Fact]
+    public void TestLastSymbolMaskingStartegy()
+    {
+        _fieldSelector = bytes => "secretKey"u8.SequenceEqual(bytes)
+            ? Utf8MaskingStrategies.LastSymbolsByPercent(75)
+            : null;
+        var utf8Json = """
+                {
+                    "key": "value1",
+                    "secretKey": "value2",
+                    "anotherKey": "value3"
+                }
+                """u8;
+
+        _sut.Write(utf8Json, true);
+
+        AssertEqual("""
+                {
+                    "key": "value1",
+                    "secretKey": "va****",
+                    "anotherKey": "value3"
+                }
+                """u8, _sut.MaskedBytes);
+    }
+
     [Theory]
     [InlineData(5)]
     [InlineData(15)]
@@ -47,7 +75,7 @@ public class Utf8JsonMaskerTests
                     "key2": "secret1"
                 }
                 """u8;
-        _fieldSelector = b => b.StartsWith("key"u8);
+        _fieldSelector = bytes => bytes.StartsWith("key"u8) ? Utf8MaskingStrategies.Full : null;
         var maskedJsonUtf8 = new MemoryStream();
 
         _sut.Write(utf8Json.Slice(0, splitPosition), false);

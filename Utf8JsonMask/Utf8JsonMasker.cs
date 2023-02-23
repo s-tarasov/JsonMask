@@ -14,8 +14,8 @@ public struct Utf8JsonMasker
     private int _availableCount;
     private int _size;
     private JsonReaderState _jsonReaderState;
-    private readonly FieldSelector _fieldSelector;
-    private bool _maskNextToken;
+    private readonly FieldUtf8Selector _fieldSelector;
+    private MaskUtf8Value? _maskNextToken;
 
     public ArraySegment<byte> MaskedBytes => new ArraySegment<byte>(_buffer, 0, _availableCount);
 
@@ -34,7 +34,7 @@ public struct Utf8JsonMasker
         }
     }
 
-    public Utf8JsonMasker(FieldSelector fieldSelector)
+    public Utf8JsonMasker(FieldUtf8Selector fieldSelector)
     {
         _fieldSelector = fieldSelector;
     }
@@ -57,14 +57,10 @@ public struct Utf8JsonMasker
                 case JsonTokenType.PropertyName:
                     _maskNextToken = _fieldSelector(jsonReader.ValueSpan);
                     break;
-                case JsonTokenType.String when (_maskNextToken):
+                case JsonTokenType.String when (_maskNextToken is not null):
                     {
                         Span<byte> valueSpan = _buffer.AsSpan((int)jsonReader.TokenStartIndex + 1, jsonReader.ValueSpan.Length);
-                        for (int i = 0; i < valueSpan.Length; i++)
-                        {
-                            valueSpan[i] = "*"u8[0];
-                        }
-
+                        _maskNextToken(valueSpan);
                         break;
                     }
             }
