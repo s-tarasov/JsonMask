@@ -1,4 +1,7 @@
-﻿namespace Utf8JsonMask.Tests;
+﻿using System.Buffers;
+using Moq;
+
+namespace Utf8JsonMask.Tests;
 
 public class Utf8JsonMaskerTests
 {
@@ -10,7 +13,7 @@ public class Utf8JsonMaskerTests
 
     public Utf8JsonMaskerTests()
     {
-        _sut = new(f => _fieldSelector(f));
+        _sut = new(f => _fieldSelector(f), ArrayPool<byte>.Shared);
     }
 
     [Fact]
@@ -58,6 +61,35 @@ public class Utf8JsonMaskerTests
                     "anotherKey": "value3"
                 }
                 """u8, _sut.MaskedBytes);
+    }
+
+    [Fact]
+    public void ShouldReturnArrayToBuffer()
+    {
+        var utf8Json = """
+                {
+                    "key": "value1",
+                    "secretKey": "value2",
+                    "anotherKey": "value3"
+                }
+                """u8;
+        var array = new byte[100];
+        var pool = Mock.Of<ArrayPool<byte>>(p => p.Rent(82) == array);
+
+        using (var sut = new Utf8JsonMasker(_fieldSelector, pool)) 
+        {
+            sut.Write(utf8Json, true);
+
+            AssertEqual("""
+                {
+                    "key": "value1",
+                    "secretKey": "******",
+                    "anotherKey": "value3"
+                }
+                """u8, sut.MaskedBytes);
+        }
+        
+        Mock.Get(pool).Verify(x => x.Return(array, false), Times.Once);
     }
 
     [Theory]

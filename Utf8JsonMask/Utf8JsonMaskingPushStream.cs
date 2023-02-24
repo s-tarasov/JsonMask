@@ -61,6 +61,7 @@ public sealed class Utf8JsonMaskingPushStream : DelegatedStream
         _masker.Write(Array.Empty<byte>(), true);
         base.Write(_masker.MaskedBytes);
         base.Close();
+        _masker.Dispose();
     }
 }
 

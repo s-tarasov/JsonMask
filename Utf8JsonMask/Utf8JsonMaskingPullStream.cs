@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Utf8JsonMask;
 
@@ -28,7 +26,9 @@ public sealed class Utf8JsonMaskingPullStream : DelegatedStream
         var bufferSpan = buffer.AsSpan(offset);
         while (resultBytesCount < count)
         {
-            var availableMaskedBytes = _masker.MaskedBytes.AsSpan(_consumedMaskedByteCount);
+            var availableMaskedBytes = _firstBytesProcceed 
+                ? _masker.MaskedBytes.AsSpan(_consumedMaskedByteCount)
+                : Span<byte>.Empty;
             if (availableMaskedBytes.Length > 0)
             {
                 var requireForConsuming = count - resultBytesCount;
@@ -44,6 +44,7 @@ public sealed class Utf8JsonMaskingPullStream : DelegatedStream
             {
                 _consumedMaskedByteCount = 0;
 
+                _masker.EnsureInputBufferCapacity(count);
                 var inputBuffer = _masker.InputBuffer;
                 var bytesCount = base.Read(inputBuffer.Array, inputBuffer.Offset, inputBuffer.Count);
                 if (!_firstBytesProcceed)
@@ -68,6 +69,12 @@ public sealed class Utf8JsonMaskingPullStream : DelegatedStream
         }
 
         return resultBytesCount;
+    }
+
+    public override void Close()
+    {
+        base.Close();
+        _masker.Dispose();
     }
 }
 

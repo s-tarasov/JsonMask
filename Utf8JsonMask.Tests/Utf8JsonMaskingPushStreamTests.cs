@@ -1,4 +1,6 @@
-﻿namespace Utf8JsonMask.Tests;
+﻿using System.Buffers;
+
+namespace Utf8JsonMask.Tests;
 
 public class Utf8JsonMaskingPushStreamTests
 {
@@ -8,7 +10,7 @@ public class Utf8JsonMaskingPushStreamTests
 
     public Utf8JsonMaskingPushStreamTests()
     {
-        _masker = new(f => _fieldSelector(f));
+        _masker = new(f => _fieldSelector(f), ArrayPool<byte>.Shared);
     }
 
     [Fact]
